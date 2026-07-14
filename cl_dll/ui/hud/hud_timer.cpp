@@ -495,7 +495,7 @@ int CHudTimer::Draw(float fTime)
 			struct tm *timeinfo;
 			time(&rawtime);
 			timeinfo = localtime(&rawtime);
-			sprintf(text, "Clock %ld:%02ld:%02ld", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
+			sprintf(text, "%ld:%02ld:%02ld", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
 
 			gHUD.DrawHudStringCentered(ScreenWidth / 2, gHUD.m_scrinfo.iCharHeight, text, r, g, b);
 			break;
