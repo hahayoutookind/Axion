@@ -569,7 +569,7 @@ void CHudTimer::ImGui_Timer()
 			struct tm *timeinfo;
 			time(&rawtime);
 			timeinfo = localtime(&rawtime);
-			sprintf(text, "Clock %ld:%02ld:%02ld", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
+			sprintf(text, "%ld:%02ld:%02ld", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
 
 			m_ImguiUtils.RenderTextCenter(fontSize, ImVec2(centerX, (float)gHUD.m_scrinfo.iCharHeight), text, IM_COL32(r, g, b, (int)a), true);
 			break;
