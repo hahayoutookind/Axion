@@ -36,9 +36,9 @@ import java.net.URL;
 
 public class UpdateActivity extends AppCompatActivity {
 
-    public static final String COMMITS_API = "https://api.github.com/repos/Elinsrc/Axion/commits?per_page=1";
-    public static final String DOWNLOAD_URL = "https://github.com/Elinsrc/Axion/releases/tag/continuous";
-    public static final String REPO_URL = "https://github.com/Elinsrc/Axion";
+    public static final String COMMITS_API = "https://api.github.com/repos/hahayoutookind/Axion/commits?per_page=1";
+    public static final String DOWNLOAD_URL = "https://github.com/hahayoutookind/Axion/releases/tag/continuous";
+    public static final String REPO_URL = "https://github.com/hahayoutookind/Axion";
     public static boolean sTestMode = false;
 
     private static final String AUTHOR = "Elinsrc";
