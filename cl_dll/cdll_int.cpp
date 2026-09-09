@@ -58,6 +58,12 @@ bool g_fRenderInitialized = false;
 #include "update_checker.h"
 #endif
 
+#if INTERNAL_VGUI_SUPPORT
+// declare InitVGUISupportAPI so that linker doesn't remove it because nothing references it
+extern "C" void InitVGUISupportAPI( void *api );
+void *g_pKeepVGUISupport = (void *)InitVGUISupportAPI;
+#endif
+
 extern "C"
 {
 #include "pm_shared.h"

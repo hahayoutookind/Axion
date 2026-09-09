@@ -80,8 +80,11 @@ if((WIN32 OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
 	OR CMAKE_SYSTEM_PROCESSOR STREQUAL "i586"
 	OR CMAKE_SYSTEM_PROCESSOR STREQUAL "i686"))
 	option(GOLDSOURCE_SUPPORT "Build goldsource compatible client library" ON)
+	set(USE_STATIC_FREEVGUI OFF)
 else()
 	option(GOLDSOURCE_SUPPORT "Build goldsource compatible client library" OFF)
+	# no prebuilt vgui shared library exists here by default, so link FreeVGUI into the client
+	set(USE_STATIC_FREEVGUI ON)
 endif()
 
 #-----------------
@@ -188,12 +191,6 @@ if(HAVE_TGMATH_H)
 	endif()
 endif()
 
-if(USE_IMGUI AND (ANDROID OR CMAKE_SIZEOF_VOID_P EQUAL 8))
-    set(VGUI_STATIC ON CACHE BOOL "" FORCE)
-    add_subdirectory(external/openvgui)
-	add_subdirectory(external)
-endif()
-
 if(NOT ANDROID)
     set(BUILD_CURL_EXE OFF CACHE INTERNAL "" FORCE)
     set(BUILD_SHARED_LIBS OFF CACHE INTERNAL "" FORCE) 
@@ -210,5 +207,5 @@ if(NOT ANDROID)
 	endif()
 endif()
 
-
+add_subdirectory(freevgui)
 add_subdirectory(cl_dll)

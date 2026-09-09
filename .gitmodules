@@ -4,15 +4,12 @@
 [submodule "external/stb"]
 	path = external/stb
 	url = https://github.com/nothings/stb
-[submodule "external/openvgui"]
-	path = external/openvgui
-	url = https://github.com/FWGS/openvgui
-[submodule "external/vgui_support"]
-	path = external/vgui_support
-	url = https://github.com/FWGS/vgui_support
 [submodule "external/curl"]
 	path = external/curl
 	url = https://github.com/curl/curl
 [submodule "external/pcre2"]
 	path = external/pcre2
 	url = https://github.com/PCRE2Project/pcre2
+[submodule "freevgui"]
+	path = freevgui
+	url = https://github.com/FWGS/freevgui

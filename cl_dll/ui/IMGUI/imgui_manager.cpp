@@ -9,11 +9,7 @@
 #include "imgui_viewport.h"
 
 #include "build.h"
-
-#if !XASH_MOBILE_PLATFORM && !XASH_64BIT
-void IN_SetVisibleMouse(bool visible);
-void IgnoreNextMouseDelta();
-#endif
+#include "input_mouse.h"
 
 extern int g_ImGuiMouse;
 
@@ -149,9 +145,7 @@ void CImGuiManager::UpdateCursorState()
         if (m_CurrentCursor != Scheme::scu_none)
         {
             m_CurrentCursor = Scheme::scu_none;
-#if !XASH_MOBILE_PLATFORM && !XASH_64BIT
-            IN_SetVisibleMouse(false);
-#endif  
+            CurrentMouseInput()->IN_SetVisibleMouse(false);
             App::getInstance()->setCursorOveride(App::getInstance()->getScheme()->getCursor(Scheme::scu_none));
         }
         return;
@@ -200,10 +194,8 @@ void CImGuiManager::UpdateCursorState()
     if (m_CurrentCursor != Cursor)
     {
         m_CurrentCursor = Cursor;
-#if !XASH_MOBILE_PLATFORM && !XASH_64BIT
-        IN_SetVisibleMouse(true);
-        IgnoreNextMouseDelta();
-#endif
+        CurrentMouseInput()->IN_SetVisibleMouse(true);
+        CurrentMouseInput()->IgnoreNextMouseDelta();
         App::getInstance()->setCursorOveride(App::getInstance()->getScheme()->getCursor(Cursor));
     }
 
